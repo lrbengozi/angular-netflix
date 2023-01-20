@@ -1,0 +1,12 @@
+<div class="home--page">
+  <div *ngIf="movieList.length > 0">
+
+    <section *ngFor="let movie of movieList" className="lists">
+      Titulo: {{movie.title}}
+    </section>
+  </div>
+  <div>{{ movieList.length }}</div>
+  <ul>
+    
+  </ul>
+</div>
