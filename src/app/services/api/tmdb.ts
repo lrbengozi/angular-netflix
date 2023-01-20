@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core"
+import IMovieInfo from "src/app/interfaces/movieInfo.interface"
 
 const BASE_URL = 'https://api.themoviedb.org/3'
 
@@ -72,8 +73,8 @@ export class Tmdb {
     ]
   } 
 
-  async getMovieInfo(movieId: string, type: string) {
-    let info = {}
+  async getMovieInfo(movieId: string, type: string): Promise<IMovieInfo> {
+    let info: IMovieInfo = {};
 
     if (movieId) {
       switch (type) {

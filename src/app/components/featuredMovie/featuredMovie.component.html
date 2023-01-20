@@ -1,0 +1,30 @@
+<section
+  class="featured--movie"
+  style="
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://image.tmdb.org/t/p/original{{model.backdrop_path}});
+  "
+  *ngIf="model.backdrop_path"
+>
+  <div class="featured--vertical">
+    <div class="featured--horizontal">
+      <div class="featured--name">{{model.name}}</div>
+      <div class="featured--info">
+        <div class="featured--points">{{model.vote_average}} pontos</div>
+        <div class="featured--year">{{getFullYear()}}</div>
+        <div class="featured--seasons">
+          {{renderSeasons()}}
+        </div>
+      </div>
+      <div class="featured--description">{{renderDescription()}}</div>
+      <div class="featured--buttons">
+        <a href="" class="featured--watchbutton"> ▶ Assistir </a>
+        <a href="" class="featured--mylistbutton"> + Minha Lista </a>
+      </div>
+      <div class="featured--genres">
+        <strong>Gêneros: </strong> {{getGenres()}}
+      </div>
+    </div>
+  </div>
+</section>
