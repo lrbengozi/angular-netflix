@@ -5,5 +5,23 @@
     <section *ngFor="let movie of moviesList">
       <app-movie-row [title]="movie.title" [items]="movie.items"/>
     </section>
+  </div>  
+  <div *ngIf="0 >= moviesList.length" class="loading">
+    <mat-spinner color="warn"></mat-spinner>
   </div>
+
+  <footer>
+    Página desenvolvida por
+    <a href="https://www.linkedin.com/in/lrbengozi/" target="blank">
+      Luiz Rogério Bengozi
+    </a>
+    para portifólio de projetos. <br />
+    Direitos de imagem para a Netflix <br />
+    Dados pegos no site Themoviedb.org <br />
+    <a href="https://www.linkedin.com/in/lrbengozi/" target="blank">
+      <i class="fab fa-linkedin" style="font-size: 32px;"></i>
+    </a>
+    
+  </footer>
+
 </div>

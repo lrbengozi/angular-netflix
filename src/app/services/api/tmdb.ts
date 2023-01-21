@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core"
-import IMovieInfo from "src/app/interfaces/movieInfo.interface"
+import { Injectable } from '@angular/core';
+import IMovieInfo from 'src/app/interfaces/movieInfo.interface';
 
-const BASE_URL = 'https://api.themoviedb.org/3'
+const BASE_URL = 'https://api.themoviedb.org/3';
 
 interface getHomeListResponseItem {
-  slug: string
-  title: string
-  items: any
+  slug: string;
+  title: string;
+  items: any;
 }
 
 export interface IGetHomeListResponse extends Array<getHomeListResponseItem> {}
@@ -16,11 +16,11 @@ const getFetch = async (endpoint: string) => {
     headers: new Headers({
       Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNTFlZjc4MmZhN2U2NTZmZjcwNWFkOTIyMWUzNDY4OCIsInN1YiI6IjYxNzJiOTEyOGRkYzM0MDA0NGIxZjc3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.yZ0jHWSlVeoC_C2UHhVpVbvi8BFvpZh1bGuPqafX_60`,
     }),
-  }
-  const req = await fetch(`${BASE_URL}${endpoint}`, config)
+  };
+  const req = await fetch(`${BASE_URL}${endpoint}`, config);
 
-  return await req.json()
-}
+  return await req.json();
+};
 
 @Injectable({
   providedIn: 'root',
@@ -70,8 +70,8 @@ export class Tmdb {
         title: 'Documentários',
         items: await getFetch(`/discover/movie?with_genres=99&language=pt-br`),
       },
-    ]
-  } 
+    ];
+  }
 
   async getMovieInfo(movieId: string, type: string): Promise<IMovieInfo> {
     let info: IMovieInfo = {};
@@ -79,20 +79,21 @@ export class Tmdb {
     if (movieId) {
       switch (type) {
         case 'movie':
-          info = await getFetch(`/movie/${movieId}?language=pt-br`)
-          break
+          info = await getFetch(`/movie/${movieId}?language=pt-br`);
+          break;
         case 'tv':
-          info = await getFetch(`/tv/${movieId}?language=pt-br`)
-          break
+          info = await getFetch(`/tv/${movieId}?language=pt-br`);
+          break;
         default:
-          break
+          break;
       }
     }
 
-    return info
+    return info;
   }
   async getTrailer(movieId: string, type: string) {
     let info = {
+      status_code: 0,
       results: [
         {
           site: 'YouTube',
@@ -100,27 +101,22 @@ export class Tmdb {
           type: 'Trailer',
         },
       ],
-    }
+    };
 
     if (movieId) {
-      switch (type) {
-        case 'movie':
-          info = await getFetch(`/movie/${movieId}/videos`)
-          break
-        case 'tv':
-          info = await getFetch(`/tv/${movieId}/videos`)
-          break
-        default:
-          break
+      info = await getFetch(`/tv/${movieId}/videos`);
+
+      if (info.status_code === 34) {
+        info = await getFetch(`/movie/${movieId}/videos`);
       }
     }
 
     const results = info.results.filter(
       (i) => i.site === 'YouTube' && i.type === 'Trailer' && i.key
-    )
+    );
 
-    return results[results.length - 1].key
+    return results[results.length - 1].key;
   }
 }
 
-export default Tmdb
+export default Tmdb;

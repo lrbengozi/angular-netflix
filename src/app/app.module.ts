@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FeaturedMovieComponent } from './components/featuredMovie/featuredMovie.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MovieRowComponent } from './components/movieRow/movieRow.component';
+import { MaterialUiModule } from './material.ui.module';
 import { HomeComponent } from './pages/home/home.component';
 import { WatchComponent } from './pages/watch/watch.component';
 import { SafePipe } from './services/api/safePipe/safePipe';
@@ -20,7 +21,7 @@ import { SafePipe } from './services/api/safePipe/safePipe';
     HeaderComponent,
     SafePipe,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, MaterialUiModule],
   providers: [],
   bootstrap: [AppComponent],
 })

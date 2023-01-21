@@ -3,7 +3,11 @@
     *ngIf="youTubeKey !== ''"
     class="youtube--player"
     [src]="youTubeKey | safe"
-    allow='autoplay'
+    allow="autoplay"
     frameborder="0"
   ></iframe>
+
+  <div class="loading" *ngIf="youTubeKey === ''">
+    <mat-spinner color="warn"></mat-spinner>
+  </div>
 </div>
