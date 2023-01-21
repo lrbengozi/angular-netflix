@@ -1,0 +1,9 @@
+<div class="youtube">
+  <iframe
+    *ngIf="youTubeKey !== ''"
+    class="youtube--player"
+    [src]="youTubeKey | safe"
+    allow='autoplay'
+    frameborder="0"
+  ></iframe>
+</div>

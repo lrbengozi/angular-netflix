@@ -10,7 +10,7 @@
     <div class="movieRow--list" [style]="handleMovieRowListStyle()">
       <div *ngFor="let item of items.results" >
         <div class="movieRow--item">
-          <a href="#">
+          <a [routerLink]="['watch', 'tv', item.id]">
             <img [src]="getImgUrl(item.poster_path)" alt="{{ item.title }}" />
           </a>
         </div>

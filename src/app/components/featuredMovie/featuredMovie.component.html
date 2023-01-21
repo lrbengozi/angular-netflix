@@ -15,7 +15,7 @@
       </div>
       <div class="featured--description">{{ renderDescription() }}</div>
       <div class="featured--buttons">
-        <a href="" class="featured--watchbutton">
+        <a [routerLink]="['watch', 'tv', model.id]" class="featured--watchbutton">
           <div style="display: flex">
             <span class="material-icons">play_arrow</span>
             <span>Assistir</span>

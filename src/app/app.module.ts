@@ -7,14 +7,18 @@ import { FeaturedMovieComponent } from './components/featuredMovie/featuredMovie
 import { HeaderComponent } from './components/header/header.component';
 import { MovieRowComponent } from './components/movieRow/movieRow.component';
 import { HomeComponent } from './pages/home/home.component';
+import { WatchComponent } from './pages/watch/watch.component';
+import { SafePipe } from './services/api/safePipe/safePipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    WatchComponent,
     FeaturedMovieComponent,
     MovieRowComponent,
     HeaderComponent,
+    SafePipe,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
