@@ -1,5 +1,5 @@
 <div class="home--page">
-  
+  <app-header />
   <div *ngIf="moviesList.length > 0" class="lists">
     <app-featured-movie *ngIf="featuredData" [model]="featuredData"/>
     <section *ngFor="let movie of moviesList">
