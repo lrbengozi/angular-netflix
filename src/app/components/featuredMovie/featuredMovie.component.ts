@@ -46,5 +46,13 @@ export class FeaturedMovieComponent implements OnInit {
     return genres.join(', ');
   }
 
+  handleFeaturedMovieStyle() {
+    return `
+      background-size: cover; 
+      background-position: center; 
+      background-image: url(https://image.tmdb.org/t/p/original${this.model.backdrop_path});
+    `;
+  }
+
   ngOnInit(): void {}
 }

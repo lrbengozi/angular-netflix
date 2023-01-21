@@ -4,19 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturedMovieComponent } from './components/featuredMovie/featuredMovie.component';
+import { MovieRowComponent } from './components/movieRow/movieRow.component';
 import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FeaturedMovieComponent
+    FeaturedMovieComponent,
+    MovieRowComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

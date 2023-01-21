@@ -1,10 +1,9 @@
 <div class="home--page">
   
-  <div *ngIf="moviesList.length > 0">
+  <div *ngIf="moviesList.length > 0" class="lists">
     <app-featured-movie *ngIf="featuredData" [model]="featuredData"/>
-    <div>{{ featuredData}}</div>
-    <section *ngFor="let movie of moviesList" className="lists">
-      Titulo: {{movie.title}}
+    <section *ngFor="let movie of moviesList">
+      <app-movie-row [title]="movie.title" [items]="movie.items"/>
     </section>
   </div>
 </div>
